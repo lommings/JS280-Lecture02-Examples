@@ -37,8 +37,32 @@ var Hitokage = new Pokemon(
     "Hitokage"
 );
 
+$(function () {
+
+    function Render() {
+        $("#fushigidane-name").text(Fushigidane.japanese);
+        $("#fushigidane-hp").text(Fushigidane.hp);
+        $("#hitokage-name").text(Hitokage.japanese);
+        $("#hitokage-hp").text(Hitokage.hp);
+    }
+
+    Render();
+    $("#fushigidane-btn").click(function () {
+        Fushigidane.attack(Hitokage);
+        Render();
+    });
+
+    $("#hitokage-btn").click(function () {
+        Hitokage.attack(Fushigidane);
+        Render();
+    });
+
+});
+
+
 console.log("妙蛙種子hp:" + Fushigidane.hp);
 console.log("小火龍hp:" + Hitokage.hp);
+
 console.log("小火龍發動攻擊");
 Hitokage.attack(Fushigidane);
 console.log("妙蛙種子hp:" + Fushigidane.hp);
